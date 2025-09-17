@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness Calendar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2><i class="fa fa-leaf"></i></h2>
+        <nav>
+            <a href="#"><i class="fa fa-calendar"></i> Calendar</a>
+            <a href="#"><i class="fa fa-heart"></i> Wellness</a>
+            <a href="#"><i class="fa fa-user"></i> Profile</a>
+            <a href="#"><i class="fa fa-cog"></i> Settings</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="wellness-calendar">
+            <div class="calendar-header">
+                <h1><i class="fa fa-calendar"></i> Wellness Calendar</h1>
+                <p>Upcoming events designed to boost your health, happiness, and productivity.</p>
+
+                <div>
+                    <button class="main-btn" id="btn-all">All</button>
+                    <button class="main-btn" id="btn-paid">Paid</button>
+                    <button class="main-btn" id="btn-comp">Complimentary</button>
+                </div>
+            </div>
+
+            <!-- January 2025 -->
+            <div class="well-card">
+                <div class="calendar-month">
+                    <h1>January</h1>
+                    <!-- <p><i class="fa-solid fa-circle" style="color: #1da69a;"></i> Zumba (All are paid Offline session)
+                    </p> -->
+                </div>
+                <div class="calendar-grid">
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">02</span><span class="month">Jan</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Complementary</span></div>
+                        <img src="./assets/wellness-calendar/jan-2025/jan-Mental Wellness.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Mental Wellness Session: Stress Management</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="Complementary">
+                        <div class="calendar-date">
+                            <span class="day">13</span><span class="month">Jan</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Complementary</span></div>
+                        <img src="./assets/wellness-calendar/jan-2025/jan-Dental Camp.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Dental Camp</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">23</span><span class="month">Jan</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <img src="./assets/wellness-calendar/jan-2025/jan-Diet Planner.png" alt="">
+                        <div class="calendar-content">
+                            <h2> Diet Planner and Fitness Consultation (Per Consultation/Subscription)</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">29</span><span class="month">Jan</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Complementary</span></div>
+                        <img src="./assets/wellness-calendar/jan-2025/jan-Nutrition Health.png" alt="">
+                        <div class="calendar-content">
+                            <h2> Nutrition Health Talk</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feb 2025 -->
+            <div class="well-card">
+                <div class="calendar-month">
+                    <h1>February</h1>
+                    <!-- <p><i class="fa-solid fa-circle" style="color: #1da69a;"></i> Zumba (All are paid Offline session)
+                    </p> -->
+                </div>
+                <div class="calendar-grid">
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">07</span><span class="month">Feb</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <img src="./assets/wellness-calendar/feb-2025/feb-Heart Health.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Heart Health Awareness Webinar</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">12</span><span class="month">Feb</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Complementary</span></div>
+                        <img src="./assets/wellness-calendar/feb-2025/feb-Checkups .png" alt="">
+                        <div class="calendar-content">
+                            <h2>Health Checkups (Blood Pressure, Cholesterol, ECG)</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">17</span><span class="month">Feb</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <img src="./assets/wellness-calendar/feb-2025/feb-Yoga and Meditation.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Yoga and Meditation (Online / Offline )</h2>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Mar 2025 -->
+            <div class="well-card">
+                <div class="calendar-month">
+                    <h1>March</h1>
+                    <!-- <p><i class="fa-solid fa-circle" style="color: #1da69a;"></i> Zumba (All are paid Offline session)
+                    </p> -->
+                </div>
+                <div class="calendar-grid">
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">06</span><span class="month">Mar</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Complementary</span></div>
+                        <img src="./assets/wellness-calendar/mar-2025/mar-Nutrition for Women.png" alt="">
+                        <div class="calendar-content">
+                            <h2> Nutrition for Women: Balanced Diet Plans</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">19</span><span class="month">Mar</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <img src="./assets/wellness-calendar/mar-2025/mar-Women's Wellness.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Women's Wellness: Gynecological Checkups</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">21</span><span class="month">Mar</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Complementary</span></div>
+                        <img src="./assets/wellness-calendar/mar-2025/mar-Health talk.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Health talk on Work-Life Balance</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">25</span><span class="month">Mar</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <img src="./assets/wellness-calendar/mar-2025/mar-Self-defense.png" alt="">
+                        <div class="calendar-content">
+                            <h2> Self-defense session (Online /Offline)</h2>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Apr 2025 -->
+            <div class="well-card">
+                <div class="calendar-month">
+                    <h1>April</h1>
+                    <!-- <p><i class="fa-solid fa-circle" style="color: #1da69a;"></i> Zumba (All are paid Offline session)
+                    </p> -->
+                </div>
+                <div class="calendar-grid">
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">03</span><span class="month">Apr</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <img src="./assets/wellness-calendar/apr-2025/apr-Destress .png" alt="">
+                        <div class="calendar-content">
+                            <h2>Destress with Yoga & Meditation / Ergonomics</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">09</span><span class="month">Apr</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Complementary</span></div>
+                        <img src="./assets/wellness-calendar/apr-2025/apr-Online session.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Online session on Mental Well-being</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">14</span><span class="month">Apr</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <img src="./assets/wellness-calendar/apr-2025/apr-Mental Health Counseling.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Mental Health Counseling</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">24</span><span class="month">Apr</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Complementary</span></div>
+                        <img src="./assets/wellness-calendar/apr-2025/apr-Webinar on Sleep Matters.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Webinar on Sleep Matters</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">29</span><span class="month">Apr</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Complementary</span></div>
+                        <img src="./assets/wellness-calendar/apr-2025/apr-Eye Camp.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Eye Camp</h2>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- May 2025 -->
+            <div class="well-card">
+                <div class="calendar-month">
+                    <h1>May</h1>
+                    <!-- <p><i class="fa-solid fa-circle" style="color: #1da69a;"></i> Zumba (All are paid Offline session)
+                    </p> -->
+                </div>
+                <div class="calendar-grid">
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">02</span><span class="month">May</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <img src="./assets/wellness-calendar/may-2025/may-Skin and Hair.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Skin and Hair Health Camp</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">13</span><span class="month">May</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Complementary</span></div>
+                        <img src="./assets/wellness-calendar/may-2025/may-Hydration .png" alt="">
+                        <div class="calendar-content">
+                            <h2>Hydration and Summer Nutrition Tips</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">22</span><span class="month">May</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <img src="./assets/wellness-calendar/may-2025/may-Vaccination Drive.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Vaccination Drive</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">28</span><span class="month">May</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Complementary</span></div>
+                        <img src="./assets/wellness-calendar/may-2025/apr-Eye Camp copy.png" alt="">
+                        <div class="calendar-content">
+                            <h2> Eye Camp</h2>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- june 2025 -->
+            <div class="well-card">
+                <div class="calendar-month">
+                    <h1>June</h1>
+                    <!-- <p><i class="fa-solid fa-circle" style="color: #1da69a;"></i> Zumba (All are paid Offline session)
+                    </p> -->
+                </div>
+                <div class="calendar-grid">
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">06</span><span class="month">Jun</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Complementary</span></div>
+                        <img src="./assets/wellness-calendar/jun-2025/Session on Healthy.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Session on Healthy Lifestyle for Men</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">11</span><span class="month">Jun</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <img src="./assets/wellness-calendar/jun-2025/Stress Relief.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Stress Relief Exercise (Yoga Session online /offline)</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">17</span><span class="month">Jun</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Complementary</span></div>
+                        <img src="./assets/wellness-calendar/jun-2025/Work-Life Balance.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Work-Life Balance: Online session</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">26</span><span class="month">Jun</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <img src="./assets/wellness-calendar/jun-2025//Prostate.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Prostate and General Health Checkups for Men</h2>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- july 2025 -->
+            <div class="well-card">
+                <div class="calendar-month">
+                    <h1>July</h1>
+                    <!-- <p><i class="fa-solid fa-circle" style="color: #1da69a;"></i> Zumba (All are paid Offline session)
+                    </p> -->
+                </div>
+                <div class="calendar-grid">
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">08</span><span class="month">Jul</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <img src="./assets/wellness-calendar/jul-2025/Online GP.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Online GP Consultation</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">18</span><span class="month">Jul</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Complementary</span></div>
+                        <img src="./assets/wellness-calendar/jul-2025/Awareness on Seasonal.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Awareness on Seasonal Diseases (Dengue, Malaria)- Webinars</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">30</span><span class="month">Jul</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <img src="./assets/wellness-calendar/jul-2025/Immunity Boost .png" alt="">
+                        <div class="calendar-content">
+                            <h2>Immunity Boost Sessions: Nutrition & Supplements</h2>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Aug 2025 -->
+            <div class="well-card">
+                <div class="calendar-month">
+                    <h1>August</h1>
+                    <!-- <p><i class="fa-solid fa-circle" style="color: #1da69a;"></i> Zumba (All are paid Offline session)
+                    </p> -->
+                </div>
+                <div class="calendar-grid">
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">07</span><span class="month">Aug</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Complementary</span></div>
+                        <img src="./assets/wellness-calendar/aug-2025/Eye Checkup.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Free Eye Checkup Camps</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">19</span><span class="month">Aug</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Complementary</span></div>
+                        <img src="./assets/wellness-calendar/aug-2025/Dental Checkup.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Dental Checkup and Cleaning</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">28</span><span class="month">Aug</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Complementary</span></div>
+                        <img src="./assets/wellness-calendar/aug-2025/Webinar .png" alt="">
+                        <div class="calendar-content">
+                            <h2>Webinar on Digital Eye Strain</h2>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- September 2025-->
+            <div class="well-card">
+                <div class="calendar-month">
+                    <h1>September</h1>
+                    <!-- <p><i class="fa-solid fa-circle" style="color: #1da69a;"></i> Zumba (All are paid Offline session)
+                    </p> -->
+                </div>
+                <div class="calendar-grid">
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">04</span><span class="month">Sep</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <img src="./assets/wellness-calendar/sept/Customized Diet Plans for Employees.jpg" alt="">
+                        <div class="calendar-content">
+                            <h2>Customized Diet Plans for Employees</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">16</span><span class="month">Sep</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Complementary</span></div>
+                        <img src="./assets/wellness-calendar/sept/BMI image.jpg" alt="">
+                        <div class="calendar-content">
+                            <h2>BMI & Body Composition Analysis</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">29</span><span class="month">Sep</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <img src="./assets/wellness-calendar/sept/Nutrition.jpg" alt="">
+                        <div class="calendar-content">
+                            <h2>Nutrition Talks: Healthy Eating for a Productive Life</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- October 2025-->
+            <div class="well-card">
+                <div class="calendar-month">
+                    <h1>October</h1>
+                    <!-- <p><i class="fa-solid fa-circle" style="color: #1da69a;"></i> Team Building (All are paid Offline
+                        session)</p> -->
+                </div>
+                <div class="calendar-grid">
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">08</span><span class="month">Oct</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Complementary</span></div>
+                        <img src="./assets/wellness-calendar/oct/cancer-oct.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Cancer Screening Camps</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">28</span><span class="month">Oct</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <img src="./assets/wellness-calendar/oct/Awareness Session-oct.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Awareness Session: Recognizing Early Symptoms of Cancer</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- November 2025-->
+            <div class="well-card">
+                <div class="calendar-month">
+                    <h1>November</h1>
+                    <!-- <p><i class="fa-solid fa-circle" style="color: #1da69a;"></i> Yoga (All are paid Offline session)
+                    </p> -->
+                </div>
+                <div class="calendar-grid">
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">07</span><span class="month">Nov</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <img src="./assets/wellness-calendar/nov/Diabetes-nov.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Diabetes Management Webinar</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">17</span><span class="month">Nov</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Complementary</span></div>
+                        <img src="./assets/wellness-calendar/nov/Customized Diabetes-nov.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Customized Diabetes Management Programs</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">26</span><span class="month">Nov</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Complementary</span></div>
+                        <img src="./assets/wellness-calendar/nov/Blood Sugar-nov.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Blood Sugar and HbA1c Testing</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- December 2025-->
+            <div class="well-card">
+                <div class="calendar-month">
+                    <h1>December</h1>
+                    <!-- <p><i class="fa-solid fa-circle" style="color: #1da69a;"></i> Ergonomics (All are paid Offline
+                        session)</p> -->
+                </div>
+                <div class="calendar-grid">
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">04</span><span class="month">Dec</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Complementary</span></div>
+                        <img src="./assets/wellness-calendar/dec/Basic Health-dec.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Basic Health check up Camp</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">16</span><span class="month">Dec</span><span class="year">2025</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <img src="./assets/wellness-calendar/dec/Winter Wellness-dec.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Winter Wellness session (Immunity Boosting Tips)</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- January 2026-->
+            <!-- <div class="well-card">
+                <div class="calendar-month">
+                    <h1>January</h1>
+                    <p><i class="fa-solid fa-circle" style="color: #1da69a;"></i> Laughter Therapy (All are paid Offline
+                        session)</p>
+                </div>
+                <div class="calendar-grid">
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">02</span><span class="month">Jan</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <img src="./assets/wellness-calendar/jan/Mental Wellness-jan.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Mental Wellness Session: Stress Management</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">13</span><span class="month">Jan</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <img src="./assets/wellness-calendar/jan/Diet Planner-jan.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Diet Planner and Fitness Consultation (Per Consultation/Subscription)</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">23</span><span class="month">Jan</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-paid"><span>Complementary</span></div>
+                        <img src="./assets/wellness-calendar/jan/Dental Camp-jan.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Dental Camp</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">29</span><span class="month">Jan</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-paid"><span>Complementary</span></div>
+                        <img src="./assets/wellness-calendar/jan/Nutrition Health-jan.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Nutrition Health Talk</h2>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- February 2026-->
+            <!-- <div class="well-card">
+                <div class="calendar-month">
+                    <h1>February</h1>
+                    <p><i class="fa-solid fa-circle" style="color: #1da69a;"></i> First Aid (All are paid Offline
+                        session)</p>
+                </div>
+                <div class="calendar-grid">
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">13</span><span class="month">Feb</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-paid"><span>Complementary</span></div>
+                        <img src="./assets/wellness-calendar/feb/Heart Health-feb.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Heart Health Awareness Webinar</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">18</span><span class="month">Feb</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <img src="./assets/wellness-calendar/feb/Health Checkups-feb.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Health Checkups (Blood Pressure, Cholesterol, ECG)</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">23</span><span class="month">Feb</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <img src="./assets/wellness-calendar/feb/Yoga-feb.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Yoga and Meditation (Online / Offline)</h2>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const btnPaid = document.getElementById("btn-paid");
+            const btnComp = document.getElementById("btn-comp");
+            const btnAll = document.getElementById("btn-all");
+            const cards = document.querySelectorAll(".calendar-card");
+
+            btnPaid.addEventListener("click", () => filterCards("paid"));
+            btnComp.addEventListener("click", () => filterCards("complementary"));
+            btnAll.addEventListener("click", showAllCards);
+
+            function filterCards(type) {
+                cards.forEach(card => {
+                    if (card.dataset.type === type) {
+                        card.classList.remove("hide");
+                    } else {
+                        card.classList.add("hide");
+                    }
+                });
+            }
+
+            function showAllCards() {
+                cards.forEach(card => {
+                    card.classList.remove("hide");
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>
