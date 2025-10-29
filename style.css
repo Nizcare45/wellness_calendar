@@ -2,6 +2,8 @@ body {
     margin: 0;
     display: flex;
     font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #f6fdfb, #e9f8f7, #fdfdfd);
+
 }
 
 /* --- Sidebar --- */
@@ -60,7 +62,7 @@ body {
 
 /* Existing Styles */
 .wellness-calendar {
-    background: linear-gradient(135deg, #f6fdfb, #e9f8f7, #fdfdfd);
+    /* background: linear-gradient(135deg, #f6fdfb, #e9f8f7, #fdfdfd); */
     padding: 20px 20px;
     color: #333;
 }
@@ -135,7 +137,7 @@ body {
 .calendar-header h1 {
     font-size: 2.8rem;
     font-weight: 700;
-    color: #1da69a;
+    /* color: #1da69a; */
 }
 
 .calendar-header h1 i {
@@ -156,7 +158,8 @@ body {
     gap: 35px;
     max-width: 1200px;
     margin: auto;
-    justify-content: center; /* ✅ Keeps last row cards centered */
+    justify-content: center;
+    /* ✅ Keeps last row cards centered */
 }
 
 .calendar-card {
@@ -256,4 +259,290 @@ body {
     font-size: 1rem;
     opacity: 0.85;
     line-height: 1.5;
+}
+
+
+/* ===== STEP-BY-STEP JOURNEY (ARROW FLOW) ===== */
+.journey-wrapper {
+    /* background: #ffffff; */
+    padding: 0px 30px;
+    border-radius: 20px;
+    /* box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05); */
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.journey-heading {
+    font-size: 2rem;
+    /* color: #1da69a; */
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.journey-sub {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 60px;
+}
+
+/* Stakeholder Block */
+.journey-block {
+    margin-bottom: 80px;
+}
+
+.journey-block h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 40px;
+    color: #0e3a34;
+}
+
+.journey-block h2 i {
+    color: #1da69a;
+    margin-right: 8px;
+}
+
+/* Steps Layout */
+.journey-steps {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+}
+
+.journey-step {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    padding: 20px;
+    height: 100px;
+    width: 180px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.journey-step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(29, 166, 154, 0.15);
+}
+
+.step-num {
+    background: #1da69a;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 50%;
+    display: inline-block;
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.journey-step p {
+    font-size: 0.9rem;
+    color: #333;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Arrows */
+.journey-arrow {
+    color: #1da69a;
+    font-size: 1.5rem;
+    opacity: 0.8;
+    transition: transform 0.3s ease;
+}
+
+.journey-arrow i {
+    transition: transform 0.3s ease;
+}
+
+.journey-arrow:hover i {
+    transform: translateX(4px);
+}
+
+/* Thematic Colors */
+.journey-block.broker .step-num {
+    background: #1da69a;
+}
+
+.journey-block.hr .step-num {
+    background: #f8a01f;
+}
+
+.journey-block.employee .step-num {
+    background: #3085f7;
+}
+
+.journey-block.hr h2 i {
+    color: #f8a01f;
+}
+
+.journey-block.employee h2 i {
+    color: #3085f7;
+}
+
+.journey-block.hr .journey-arrow {
+    color: #f8a01f;
+}
+
+.journey-block.employee .journey-arrow {
+    color: #3085f7;
+}
+
+/* Employee Wrap Fix */
+.employee-steps {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.employee-steps .journey-step:nth-child(9) {
+    margin-top: 30px;
+}
+
+.hide-on-wrap {
+    display: none;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .journey-steps {
+        flex-direction: column;
+    }
+
+    .journey-arrow i {
+        transform: rotate(90deg);
+    }
+
+    .journey-arrow:hover i {
+        transform: translateY(4px) rotate(90deg);
+    }
+
+    .hide-on-wrap {
+        display: block;
+    }
+}
+
+/* Benefits */
+
+.zigzag-section {
+    padding: 0px 30px;
+    position: relative;
+    /* background: #f9fffd; */
+}
+
+.main-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    /* color: #1da69a; */
+    margin-bottom: 60px;
+}
+
+.zigzag-timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.zigzag-timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 3px;
+    background: linear-gradient(to bottom, #1da69a, #1da69a33);
+    transform: translateX(-50%);
+}
+
+.zigzag-item {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    width: 50%;
+    padding: 20px 40px;
+}
+
+.zigzag-item.left {
+    justify-content: flex-end;
+    left: 0;
+}
+
+.zigzag-item.right {
+    justify-content: flex-start;
+    left: 50%;
+}
+
+.content-box {
+    background: #fff;
+    padding: 25px;
+    border-radius: 16px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    max-width: 400px;
+    transition: all 0.3s ease;
+}
+
+.content-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #eafaf7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    color: #1da69a;
+    position: absolute;
+    top: 20px;
+    right: -25px;
+}
+
+.zigzag-item.right .icon {
+    left: -25px;
+    right: auto;
+}
+
+.employee .icon {
+    background: #e8f1fe;
+    color: #1da69a;
+}
+
+.zigzag-item h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.zigzag-item p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .zigzag-timeline::before {
+        left: 20px;
+    }
+
+    .zigzag-item,
+    .zigzag-item.right,
+    .zigzag-item.left {
+        width: 100%;
+        padding-left: 50px;
+        padding-right: 0;
+    }
+
+    .icon {
+        left: -5px;
+        right: auto;
+    }
 }
