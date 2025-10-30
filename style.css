@@ -95,7 +95,7 @@ body {
     color: #fff;
     border: none;
     padding: 10px 20px;
-    border-radius: 25px;
+    border-radius: 20px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -133,9 +133,75 @@ body {
     }
 }
 
+.select-corporate {
+    /* background-color: #fff; */
+    /* border-radius: 20px; */
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+@media (max-width: 767px) {
+    .select-corporate {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.select-corporate div {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.select-corporate img {
+    /* text-align: center; */
+    width: 140px;
+}
+
+.select-corporate h4 {
+    text-align: center;
+}
+
+.select-btn {
+  background-color: #1da69a;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.select-btn:hover {
+  background-color: #158c80;
+  box-shadow: 0 0 12px rgba(29, 166, 154, 0.4);
+  transform: translateY(-3px);
+}
+
+.view-btn {
+  background-color: #f8a01f;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.view-btn:hover {
+  background-color: #e18f16;
+  box-shadow: 0 0 12px rgba(248, 160, 31, 0.4);
+  transform: translateY(-3px);
+}
+
 /* Your existing calendar styles stay same */
 .calendar-header h1 {
-    font-size: 2.8rem;
+    font-size: 2rem;
     font-weight: 700;
     /* color: #1da69a; */
 }
@@ -480,5 +546,159 @@ body {
     .benefits-section {
         display: flex;
         flex-direction: column;
+    }
+}
+
+
+/* ---------- Modal-only styles (won't affect existing cards/sidebar) ---------- */
+.wc-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.wc-modal {
+    width: 920px;
+    max-width: 96%;
+    background: #fff;
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: 0 12px 40px rgba(2, 6, 23, 0.35);
+    max-height: 86vh;
+    overflow: auto;
+    font-family: inherit;
+}
+
+.wc-modal .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px
+}
+
+.wc-modal h3 {
+    margin: 0;
+    font-size: 18px
+}
+
+.wc-modal .muted {
+    color: #6b7280;
+    font-size: 13px
+}
+
+.wc-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center
+}
+
+.wc-btn {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 0;
+    cursor: pointer;
+    font-size: 14px
+}
+
+.wc-btn.secondary {
+    background: #eef6f4
+}
+
+.wc-btn.primary {
+    background: #1da69a;
+    color: white
+}
+
+.wc-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    font-size: 14px
+}
+
+.wc-table th,
+.wc-table td {
+    padding: 8px;
+    border-bottom: 1px solid #eef2f2;
+    text-align: left;
+    vertical-align: middle
+}
+
+.wc-table th {
+    background: #fbfdfc;
+    position: sticky;
+    top: 0;
+    z-index: 2
+}
+
+.wc-checkbox-col {
+    width: 48px;
+    text-align: center
+}
+
+.wc-small {
+    font-size: 13px;
+    color: #6b7280
+}
+
+.wc-no-items {
+    padding: 12px;
+    color: #6b7280;
+    text-align: center
+}
+
+/* selections area that will appear below corporate tiles (only styling for the inserted block) */
+.wc-selections-container {
+    margin-top: 16px
+}
+
+.wc-selection-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #eef6f4;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04)
+}
+
+.wc-selection-card h4 {
+    margin: 0 0 6px 0;
+    font-size: 15px
+}
+
+.wc-selection-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    border-top: 1px dashed #f1f7f6
+}
+
+.wc-selection-row:first-of-type {
+    border-top: 0;
+    padding-top: 0
+}
+
+.wc-remove {
+    background: transparent;
+    border: 0;
+    color: #c23b3b;
+    cursor: pointer;
+    font-size: 14px
+}
+
+@media (max-width:520px) {
+    .wc-modal {
+        padding: 12px;
+    }
+
+    .wc-table th,
+    .wc-table td {
+        font-size: 13px;
+        padding: 6px
     }
 }
