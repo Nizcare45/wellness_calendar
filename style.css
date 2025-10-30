@@ -279,7 +279,7 @@ body {
 /* ===== STEP-BY-STEP JOURNEY (ARROW FLOW) ===== */
 .journey-wrapper {
     /* background: #ffffff; */
-    padding: 0px 30px;
+    padding: 60px 30px;
     border-radius: 20px;
     /* box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05); */
     margin-bottom: 60px;
@@ -445,7 +445,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 15px;
-    padding: 0 30px;
+    padding: 60px 30px;
 }
 
 .benefit-card {
