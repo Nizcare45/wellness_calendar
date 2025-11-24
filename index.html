@@ -2,16 +2,19 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wellness Calendar</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        
+    </style>
 </head>
 
 <body>
@@ -23,8 +26,6 @@
             <a href="./index.html"><i class="fa fa-heart"></i> Wellness Calendar</a>
             <a href="./processflow.html"><i class="fa fa-calendar"></i> Process Flow</a>
             <a href="./webinar.html"><i class="fa fa-calendar"></i> Webinar</a>
-            <!-- <a href="#"><i class="fa fa-user"></i> Profile</a> -->
-            <!-- <a href="#"><i class="fa fa-cog"></i> Settings</a> -->
         </nav>
     </aside>
 
@@ -33,33 +34,45 @@
         <section class="wellness-calendar">
             <div class="calendar-header">
                 <h1>
-                    <!-- <i class="fa fa-calendar"></i>  -->
                     Customize Wellness Calendar<span style="color: #1da69a;"> for your Corporate Clients</span>
                 </h1>
                 <p>Upcoming wellness events designed to boost your clients health, happiness, and productivity.</p>
 
             </div>
 
-            <div class="select-corporate">
-                <div>
+            <!-- Broker selector + note -->
+            <!-- <div class="broker-note">Filter corporate tiles by Broker. Choose a broker to show only corporates linked to
+                that broker.</div> -->
+            <div class="broker-select-wrap">
+                <label for="brokerSelect">Select Broker:</label>
+                <!-- Removed 'All Brokers' option. Use placeholder as default. -->
+                <select id="brokerSelect" aria-label="Select broker">
+                    <option value="" disabled selected>Select Broker</option>
+                    <option value="broker1">Broker 1</option>
+                    <option value="broker2">Broker 2</option>
+                </select>
+            </div>
+
+            <div class="select-corporate" id="corporateContainer">
+                <div data-broker="broker1" tabindex="0">
                     <img src="./assets/corporate-logo/nizcare_logo.png" alt="">
                     <h4>corporate 1</h4>
                     <button class="select-btn">Select</button>
                     <button class="view-btn">view</button>
                 </div>
-                <div>
+                <div data-broker="broker2" tabindex="0">
                     <img src="./assets/corporate-logo/nizcare_logo.png" alt="">
                     <h4>corporate 2</h4>
                     <button class="select-btn">Select</button>
                     <button class="view-btn">view</button>
                 </div>
-                <div>
+                <div data-broker="broker1" tabindex="0">
                     <img src="./assets/corporate-logo/nizcare_logo.png" alt="">
                     <h4>corporate 3</h4>
                     <button class="select-btn">Select</button>
                     <button class="view-btn">view</button>
                 </div>
-                <div>
+                <div data-broker="broker2" tabindex="0">
                     <img src="./assets/corporate-logo/nizcare_logo.png" alt="">
                     <h4>corporate 4</h4>
                     <button class="select-btn">Select</button>
@@ -68,9 +81,9 @@
             </div>
 
             <div class="all-btn">
-                    <button class="main-btn" id="btn-all">All</button>
-                    <button class="main-btn" id="btn-paid">Paid</button>
-                    <button class="main-btn" id="btn-comp">Free</button>
+                <button class="main-btn" id="btn-all">All</button>
+                <button class="main-btn" id="btn-paid">Paid</button>
+                <button class="main-btn" id="btn-comp">Free</button>
             </div>
 
             <!-- January 2025 -->
@@ -207,7 +220,6 @@
 
                 </div>
             </div>
-
             <!-- Mar 2025 -->
             <div class="well-card">
                 <div class="calendar-month">
@@ -896,6 +908,7 @@
                     </div>
                 </div>
             </div>
+
         </section>
     </main>
 
@@ -940,6 +953,7 @@
     </div>
 
     <script>
+        // Basic paid/complementary filter (kept as-is)
         document.addEventListener("DOMContentLoaded", function () {
             const btnPaid = document.getElementById("btn-paid");
             const btnComp = document.getElementById("btn-comp");
@@ -952,7 +966,7 @@
 
             function filterCards(type) {
                 cards.forEach(card => {
-                    if (card.dataset.type === type) {
+                    if ((card.dataset.type || '').toString().trim().toLowerCase() === type) {
                         card.classList.remove("hide");
                     } else {
                         card.classList.add("hide");
@@ -966,12 +980,16 @@
                 });
             }
         });
+    </script>
+
+    <script>
         /*
           Modal + per-corporate view script
           - "Select" button opens modal to select activities for a corporate
           - "View" button displays only saved activities for that corporate (hides all other months/cards)
           - After Save: that corporate's view shows only selected cards and only the months containing them
           - Each corporate isolated from others
+          - Broker dropdown now does NOT include "All Brokers": once a broker is chosen, only its corporates are shown
         */
         (function () {
             const backdrop = document.getElementById('wcModalBackdrop');
@@ -986,7 +1004,9 @@
             const cancelBottom = document.getElementById('wcCancelBottom');
             const corpNameSpan = document.getElementById('wcCorpName');
 
-            // helper: read all calendar-card nodes and build activity objects
+            // broker select element (no "all" option)
+            const brokerSelect = document.getElementById('brokerSelect');
+
             function getAllActivities() {
                 const cards = Array.from(document.querySelectorAll('.calendar-card'));
                 return cards.map((card, idx) => {
@@ -998,7 +1018,6 @@
                     const dateText = (day || monthSpan || year) ? [day, monthSpan, year].filter(Boolean).join(' ') : (card.querySelector('.calendar-date') ? card.querySelector('.calendar-date').textContent.trim() : '');
                     let rawType = (card.dataset.type || '').toString().trim().toLowerCase();
                     let type = rawType === 'paid' ? 'Paid' : 'Complementary';
-                    // prefer month heading from enclosing well-card (e.g. "January") for month grouping
                     let monthForCol = monthSpan;
                     const wellCard = card.closest('.well-card');
                     if (wellCard) {
@@ -1009,11 +1028,9 @@
                 });
             }
 
-            // in-memory saved sets: saved['0'] = Set(['wc_act_1',...])
             const saved = {};
             let editingCorpIndex = null;
 
-            // Build modal rows (reads fresh activities each time)
             function buildTableRows() {
                 const activities = getAllActivities();
                 activitiesTbody.innerHTML = '';
@@ -1070,12 +1087,9 @@
                 });
             }
 
-            // Open modal for a corporate index (Select button)
             function openModalForCorp(idx) {
                 editingCorpIndex = idx;
-                // build current activities in table
                 buildTableRows();
-                // pre-check previously saved ones
                 const set = saved[String(idx)] || new Set();
                 Array.from(activitiesTbody.querySelectorAll('input.wc-row-checkbox')).forEach(cb => cb.checked = set.has(cb.dataset.actId));
                 updateSelectAllState();
@@ -1088,7 +1102,6 @@
 
             function closeModal() { backdrop.style.display = 'none'; backdrop.setAttribute('aria-hidden', 'true'); editingCorpIndex = null; }
 
-            // Save selections for the editing corporate, then immediately apply view (hide other cards/months)
             function saveSelections() {
                 if (editingCorpIndex === null) return;
                 const checkedBoxes = Array.from(activitiesTbody.querySelectorAll('input.wc-row-checkbox')).filter(cb => cb.checked);
@@ -1096,15 +1109,10 @@
                 if (ids.length === 0) delete saved[String(editingCorpIndex)];
                 else saved[String(editingCorpIndex)] = new Set(ids);
 
-                // after saving, show only selected cards/months for that corporate (same as clicking View)
                 showSavedForCorp(editingCorpIndex);
                 closeModal();
             }
 
-            // Show saved activities for corp idx:
-            // - If no saved activities -> show all months and cards
-            // - If saved, hide all .well-card by default, then show only the months that contain selected activities,
-            //   and inside those months show only the selected .calendar-card nodes.
             function showSavedForCorp(idx) {
                 const key = String(idx);
                 const set = saved[key] || null;
@@ -1112,23 +1120,18 @@
                 const allCards = Array.from(document.querySelectorAll('.calendar-card'));
 
                 if (!set || set.size === 0) {
-                    // show everything
                     allWellCards.forEach(wc => wc.style.display = '');
                     allCards.forEach(c => c.style.display = '');
-                    // mark active tile visually (optional)
                     highlightActiveCorp(idx);
                     return;
                 }
 
-                // compute months to show (from saved activities' month property)
                 const activities = getAllActivities();
                 const savedActivities = Array.from(set).map(id => activities.find(a => a.id === id)).filter(Boolean);
                 const monthsToShow = new Set(savedActivities.map(a => (a.month || '').toString().trim()).filter(Boolean));
 
-                // hide all cards initially
                 allCards.forEach(c => c.style.display = 'none');
 
-                // show only the cards in the saved set
                 Array.from(set).forEach(actId => {
                     const parts = String(actId).split('_');
                     const idxNum = parseInt(parts[parts.length - 1], 10);
@@ -1136,11 +1139,9 @@
                     if (originalCard) originalCard.style.display = '';
                 });
 
-                // show only well-cards whose header month is in monthsToShow (if month missing, if any selected card sits in that well-card it will be visible)
                 allWellCards.forEach(wc => {
                     const heading = wc.querySelector('.calendar-month h1');
                     const headingText = heading ? heading.textContent.trim() : '';
-                    // also check if wc contains any visible .calendar-card (in case month heading missing)
                     const hasVisibleCard = Array.from(wc.querySelectorAll('.calendar-card')).some(c => c.style.display !== 'none');
                     if (monthsToShow.has(headingText) || hasVisibleCard) {
                         wc.style.display = '';
@@ -1152,7 +1153,6 @@
                 highlightActiveCorp(idx);
             }
 
-            // Helper: highlight active corp tile (optional visual cue)
             function highlightActiveCorp(activeIdx) {
                 corpTiles.forEach((t, i) => {
                     if (i === activeIdx) t.classList.add('wc-active-corp');
@@ -1160,9 +1160,7 @@
                 });
             }
 
-            // Hook the Select and View buttons inside each corporate tile
             corpTiles.forEach((tile, i) => {
-                // look for buttons; identify by text content (case-insensitive)
                 const btns = Array.from(tile.querySelectorAll('button'));
                 let selectBtn = null, viewBtn = null;
                 btns.forEach(b => {
@@ -1171,8 +1169,6 @@
                     else if (txt.includes('view')) viewBtn = b;
                 });
 
-                // If user clicks the whole tile (not the buttons), we can optionally do nothing or open modal.
-                // We'll leave tile click as no-op to respect the new "Select / View" controls.
                 tile.addEventListener('keydown', (ev) => {
                     if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); /* no-op */ }
                 });
@@ -1183,37 +1179,77 @@
                         openModalForCorp(i);
                     });
                 } else {
-                    // if no explicit button, make tile clickable to open modal
                     tile.addEventListener('click', () => openModalForCorp(i));
                 }
 
                 if (viewBtn) {
                     viewBtn.addEventListener('click', (e) => {
                         e.stopPropagation();
-                        // show only saved activities for this corp (if none saved, shows all)
                         showSavedForCorp(i);
                     });
                 }
             });
 
-            // backdrop click closes modal
+            // NEW: filter corporate tiles by selected broker (no "all" option)
+            function filterCorporatesByBroker() {
+                if (!brokerSelect) return;
+                const val = brokerSelect.value; // '' (placeholder) | 'broker1' | 'broker2'
+                // If user hasn't selected a real broker (placeholder) -> hide all tiles
+                if (!val) {
+                    corpTiles.forEach((tile) => {
+                        tile.style.display = 'none';
+                    });
+                    // also clear any active highlight and reset calendar to show all cards
+                    corpTiles.forEach(t => t.classList.remove('wc-active-corp'));
+                    const allWellCards = Array.from(document.querySelectorAll('.well-card'));
+                    const allCards = Array.from(document.querySelectorAll('.calendar-card'));
+                    allWellCards.forEach(wc => wc.style.display = '');
+                    allCards.forEach(c => c.style.display = '');
+                    return;
+                }
+
+                corpTiles.forEach((tile) => {
+                    const tileBroker = (tile.dataset.broker || '').toString();
+                    if (tileBroker === val) {
+                        tile.style.display = '';
+                    } else {
+                        tile.style.display = 'none';
+                    }
+                });
+
+                // if currently highlighted corporate is hidden by broker filter, clear active highlight and reset calendar
+                const active = corpTiles.findIndex(t => t.classList.contains('wc-active-corp'));
+                if (active !== -1) {
+                    const activeTile = corpTiles[active];
+                    if (activeTile.style.display === 'none') {
+                        corpTiles.forEach(t => t.classList.remove('wc-active-corp'));
+                        const allWellCards = Array.from(document.querySelectorAll('.well-card'));
+                        const allCards = Array.from(document.querySelectorAll('.calendar-card'));
+                        allWellCards.forEach(wc => wc.style.display = '');
+                        allCards.forEach(c => c.style.display = '');
+                    }
+                }
+            }
+
+            if (brokerSelect) {
+                // run on change; also run once at init to hide all tiles until a broker is chosen
+                brokerSelect.addEventListener('change', filterCorporatesByBroker);
+                filterCorporatesByBroker();
+            }
+
             if (backdrop) backdrop.addEventListener('click', (e) => { if (e.target === backdrop) closeModal(); });
 
-            // cancel & save hooks
             [cancelTop, cancelBottom].forEach(b => { if (b) b.addEventListener('click', closeModal); });
             [saveTop, saveBottom].forEach(b => { if (b) b.addEventListener('click', saveSelections); });
 
-            // initial setup: ensure all cards visible
             (function init() {
                 const allWellCards = Array.from(document.querySelectorAll('.well-card'));
                 const allCards = Array.from(document.querySelectorAll('.calendar-card'));
                 allWellCards.forEach(wc => wc.style.display = '');
                 allCards.forEach(c => c.style.display = '');
-                // build modal rows once
                 buildTableRows();
             })();
 
-            // Optional: expose a function in window for debugging
             window.wc_showSavedForCorp = showSavedForCorp;
         })();
     </script>

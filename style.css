@@ -173,37 +173,37 @@ body {
 }
 
 .select-btn {
-  background-color: #1da69a;
-  color: #fff;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 10px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  cursor: pointer;
+    background-color: #1da69a;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .select-btn:hover {
-  background-color: #158c80;
-  box-shadow: 0 0 12px rgba(29, 166, 154, 0.4);
-  transform: translateY(-3px);
+    background-color: #158c80;
+    box-shadow: 0 0 12px rgba(29, 166, 154, 0.4);
+    transform: translateY(-3px);
 }
 
 .view-btn {
-  background-color: #f8a01f;
-  color: #fff;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 10px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  cursor: pointer;
+    background-color: #f8a01f;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .view-btn:hover {
-  background-color: #e18f16;
-  box-shadow: 0 0 12px rgba(248, 160, 31, 0.4);
-  transform: translateY(-3px);
+    background-color: #e18f16;
+    box-shadow: 0 0 12px rgba(248, 160, 31, 0.4);
+    transform: translateY(-3px);
 }
 
 /* Your existing calendar styles stay same */
@@ -718,4 +718,59 @@ body {
         font-size: 13px;
         padding: 6px
     }
+}
+
+
+/* Broker selector + note */
+.broker-select-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.broker-select-wrap label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.broker-select-wrap select {
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.broker-note {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+.select-corporate>div {
+    display: inline-block;
+    vertical-align: top;
+    width: 160px;
+    margin-right: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #e6e6e6;
+    text-align: center;
+}
+
+.select-corporate img {
+    max-width: 100%;
+    height: 48px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.wc-active-corp {
+    box-shadow: 0 0 0 3px rgba(29, 166, 154, 0.12);
+    border-color: #1da69a;
+}
+
+/* small helper to visually hide items (if you prefer to use classes) */
+.hide {
+    display: none !important;
 }
