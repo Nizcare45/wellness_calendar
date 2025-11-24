@@ -770,7 +770,79 @@ body {
     border-color: #1da69a;
 }
 
-/* small helper to visually hide items (if you prefer to use classes) */
 .hide {
     display: none !important;
+}
+
+.wc-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.wc-modal {
+    background: white;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.wc-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+}
+
+.wc-table th,
+.wc-table td {
+    padding: 8px 10px;
+    border: 1px solid #eee;
+    text-align: left;
+}
+
+.wc-btn {
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.wc-btn.primary {
+    background: #1da69a;
+    color: #fff;
+    border: none;
+}
+
+.wc-btn.secondary {
+    background: #f0f0f0;
+    border: none;
+}
+
+.wc-checkbox-col {
+    width: 44px;
+    text-align: center;
+}
+
+.wc-no-items {
+    text-align: center;
+    padding: 16px;
+    color: #666;
+}
+
+/* small responsive tweaks */
+@media (max-width: 640px) {
+    .select-corporate>div {
+        width: 48%;
+        margin-bottom: 10px;
+    }
+
+    .broker-select-wrap {
+        flex-direction: column;
+        gap: 6px;
+    }
 }

@@ -12,9 +12,6 @@
         rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <style>
-        
-    </style>
 </head>
 
 <body>
@@ -37,15 +34,11 @@
                     Customize Wellness Calendar<span style="color: #1da69a;"> for your Corporate Clients</span>
                 </h1>
                 <p>Upcoming wellness events designed to boost your clients health, happiness, and productivity.</p>
-
             </div>
 
             <!-- Broker selector + note -->
-            <!-- <div class="broker-note">Filter corporate tiles by Broker. Choose a broker to show only corporates linked to
-                that broker.</div> -->
             <div class="broker-select-wrap">
                 <label for="brokerSelect">Select Broker:</label>
-                <!-- Removed 'All Brokers' option. Use placeholder as default. -->
                 <select id="brokerSelect" aria-label="Select broker">
                     <option value="" disabled selected>Select Broker</option>
                     <option value="broker1">Broker 1</option>
@@ -53,26 +46,34 @@
                 </select>
             </div>
 
+            <!-- Corporate dropdown (hidden until a broker is chosen) -->
+            <div class="broker-select-wrap hide" id="corporateDropdownWrap" aria-hidden="true">
+                <label for="corporateSelect">Select Corporate:</label>
+                <select id="corporateSelect" aria-label="Select corporate">
+                    <option value="" disabled selected>Select Corporate</option>
+                </select>
+            </div>
+
             <div class="select-corporate" id="corporateContainer">
-                <div data-broker="broker1" tabindex="0">
+                <div data-broker="broker1" data-corp="corporate1" tabindex="0">
                     <img src="./assets/corporate-logo/nizcare_logo.png" alt="">
                     <h4>corporate 1</h4>
                     <button class="select-btn">Select</button>
                     <button class="view-btn">view</button>
                 </div>
-                <div data-broker="broker2" tabindex="0">
+                <div data-broker="broker2" data-corp="corporate2" tabindex="0">
                     <img src="./assets/corporate-logo/nizcare_logo.png" alt="">
                     <h4>corporate 2</h4>
                     <button class="select-btn">Select</button>
                     <button class="view-btn">view</button>
                 </div>
-                <div data-broker="broker1" tabindex="0">
+                <div data-broker="broker1" data-corp="corporate3" tabindex="0">
                     <img src="./assets/corporate-logo/nizcare_logo.png" alt="">
                     <h4>corporate 3</h4>
                     <button class="select-btn">Select</button>
                     <button class="view-btn">view</button>
                 </div>
-                <div data-broker="broker2" tabindex="0">
+                <div data-broker="broker2" data-corp="corporate4" tabindex="0">
                     <img src="./assets/corporate-logo/nizcare_logo.png" alt="">
                     <h4>corporate 4</h4>
                     <button class="select-btn">Select</button>
@@ -80,7 +81,7 @@
                 </div>
             </div>
 
-            <div class="all-btn">
+            <div class="all-btn" style="margin-top:14px">
                 <button class="main-btn" id="btn-all">All</button>
                 <button class="main-btn" id="btn-paid">Paid</button>
                 <button class="main-btn" id="btn-comp">Free</button>
@@ -915,13 +916,13 @@
     <!-- Wellness Calendar Modal (popup) -->
     <div class="wc-modal-backdrop" id="wcModalBackdrop" aria-hidden="true">
         <div class="wc-modal" role="dialog" aria-modal="true" aria-labelledby="wcModalTitle">
-            <div class="header">
+            <div class="header" style="display:flex;justify-content:space-between;align-items:center;gap:12px">
                 <div>
                     <h3 id="wcModalTitle">Assign activities — <span id="wcCorpName">Corporate</span></h3>
                     <div class="muted">Select activities (month, date, paid/complementary, title) and click Save.</div>
                 </div>
 
-                <div class="wc-controls">
+                <div class="wc-controls" style="display:flex;align-items:center;gap:8px">
                     <label style="display:flex;align-items:center;gap:6px;font-size:13px">
                         <input type="checkbox" id="wcSelectAllTop"> Select all
                     </label>
@@ -983,19 +984,10 @@
     </script>
 
     <script>
-        /*
-          Modal + per-corporate view script
-          - "Select" button opens modal to select activities for a corporate
-          - "View" button displays only saved activities for that corporate (hides all other months/cards)
-          - After Save: that corporate's view shows only selected cards and only the months containing them
-          - Each corporate isolated from others
-          - Broker dropdown now does NOT include "All Brokers": once a broker is chosen, only its corporates are shown
-        */
         (function () {
             const backdrop = document.getElementById('wcModalBackdrop');
             const activitiesTbody = document.getElementById('wcActivitiesTbody');
             const corpTiles = Array.from(document.querySelectorAll('.select-corporate > div'));
-            const corpContainer = document.querySelector('.select-corporate');
             const colSelectAll = document.getElementById('wcColSelectAll');
             const selectAllTop = document.getElementById('wcSelectAllTop');
             const saveTop = document.getElementById('wcSaveTop');
@@ -1004,9 +996,11 @@
             const cancelBottom = document.getElementById('wcCancelBottom');
             const corpNameSpan = document.getElementById('wcCorpName');
 
-            // broker select element (no "all" option)
             const brokerSelect = document.getElementById('brokerSelect');
+            const corporateDropdownWrap = document.getElementById('corporateDropdownWrap');
+            const corporateSelect = document.getElementById('corporateSelect');
 
+            // Helper: return all calendar activities (used by modal)
             function getAllActivities() {
                 const cards = Array.from(document.querySelectorAll('.calendar-card'));
                 return cards.map((card, idx) => {
@@ -1028,6 +1022,7 @@
                 });
             }
 
+            // Modal & selection handling
             const saved = {};
             let editingCorpIndex = null;
 
@@ -1160,6 +1155,7 @@
                 });
             }
 
+            // Wire up tile buttons & click
             corpTiles.forEach((tile, i) => {
                 const btns = Array.from(tile.querySelectorAll('button'));
                 let selectBtn = null, viewBtn = null;
@@ -1169,17 +1165,11 @@
                     else if (txt.includes('view')) viewBtn = b;
                 });
 
-                tile.addEventListener('keydown', (ev) => {
-                    if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); /* no-op */ }
-                });
-
                 if (selectBtn) {
                     selectBtn.addEventListener('click', (e) => {
                         e.stopPropagation();
                         openModalForCorp(i);
                     });
-                } else {
-                    tile.addEventListener('click', () => openModalForCorp(i));
                 }
 
                 if (viewBtn) {
@@ -1190,16 +1180,34 @@
                 }
             });
 
-            // NEW: filter corporate tiles by selected broker (no "all" option)
-            function filterCorporatesByBroker() {
-                if (!brokerSelect) return;
-                const val = brokerSelect.value; // '' (placeholder) | 'broker1' | 'broker2'
-                // If user hasn't selected a real broker (placeholder) -> hide all tiles
+            /* ---------- CORPORATE dropdown logic (exact behavior requested) ---------- */
+
+            // Populate corporate dropdown for chosen broker. Tiles remain hidden until corporate selected.
+            function populateCorporateDropdownForBroker(brokerValue) {
+                if (!corporateSelect) return;
+                corporateSelect.innerHTML = `<option value="" disabled selected>Select Corporate</option>`;
+                corpTiles.forEach(tile => {
+                    if ((tile.dataset.broker || '') === brokerValue) {
+                        const corpId = tile.dataset.corp || tile.querySelector('h4').textContent.trim();
+                        const corpLabel = tile.querySelector('h4') ? tile.querySelector('h4').textContent.trim() : corpId;
+                        const opt = document.createElement('option');
+                        opt.value = corpId;
+                        opt.textContent = corpLabel;
+                        corporateSelect.appendChild(opt);
+                    }
+                });
+            }
+
+            // When broker changes: show dropdown, populate it, but keep tiles hidden until corporate selected
+            function onBrokerChange() {
+                const val = brokerSelect.value;
                 if (!val) {
-                    corpTiles.forEach((tile) => {
-                        tile.style.display = 'none';
-                    });
-                    // also clear any active highlight and reset calendar to show all cards
+                    // hide dropdown and all tiles; reset calendar
+                    if (corporateDropdownWrap) {
+                        corporateDropdownWrap.classList.add('hide');
+                        corporateDropdownWrap.setAttribute('aria-hidden', 'true');
+                    }
+                    corpTiles.forEach(tile => tile.style.display = 'none');
                     corpTiles.forEach(t => t.classList.remove('wc-active-corp'));
                     const allWellCards = Array.from(document.querySelectorAll('.well-card'));
                     const allCards = Array.from(document.querySelectorAll('.calendar-card'));
@@ -1208,47 +1216,70 @@
                     return;
                 }
 
-                corpTiles.forEach((tile) => {
-                    const tileBroker = (tile.dataset.broker || '').toString();
-                    if (tileBroker === val) {
-                        tile.style.display = '';
-                    } else {
-                        tile.style.display = 'none';
-                    }
-                });
-
-                // if currently highlighted corporate is hidden by broker filter, clear active highlight and reset calendar
-                const active = corpTiles.findIndex(t => t.classList.contains('wc-active-corp'));
-                if (active !== -1) {
-                    const activeTile = corpTiles[active];
-                    if (activeTile.style.display === 'none') {
-                        corpTiles.forEach(t => t.classList.remove('wc-active-corp'));
-                        const allWellCards = Array.from(document.querySelectorAll('.well-card'));
-                        const allCards = Array.from(document.querySelectorAll('.calendar-card'));
-                        allWellCards.forEach(wc => wc.style.display = '');
-                        allCards.forEach(c => c.style.display = '');
-                    }
+                // populate and show corporate dropdown
+                populateCorporateDropdownForBroker(val);
+                if (corporateDropdownWrap) {
+                    corporateDropdownWrap.classList.remove('hide');
+                    corporateDropdownWrap.setAttribute('aria-hidden', 'false');
                 }
-            }
 
-            if (brokerSelect) {
-                // run on change; also run once at init to hide all tiles until a broker is chosen
-                brokerSelect.addEventListener('change', filterCorporatesByBroker);
-                filterCorporatesByBroker();
-            }
-
-            if (backdrop) backdrop.addEventListener('click', (e) => { if (e.target === backdrop) closeModal(); });
-
-            [cancelTop, cancelBottom].forEach(b => { if (b) b.addEventListener('click', closeModal); });
-            [saveTop, saveBottom].forEach(b => { if (b) b.addEventListener('click', saveSelections); });
-
-            (function init() {
+                // hide all tiles (user must select corporate to show any tile)
+                corpTiles.forEach(tile => tile.style.display = 'none');
+                corpTiles.forEach(t => t.classList.remove('wc-active-corp'));
+                // reset calendar to default
                 const allWellCards = Array.from(document.querySelectorAll('.well-card'));
                 const allCards = Array.from(document.querySelectorAll('.calendar-card'));
                 allWellCards.forEach(wc => wc.style.display = '');
                 allCards.forEach(c => c.style.display = '');
-                buildTableRows();
-            })();
+            }
+
+            // When corporate selected: show only that corporate tile
+            function onCorporateChange() {
+                const selectedCorp = corporateSelect.value;
+                if (!selectedCorp) {
+                    // placeholder chosen -> hide all tiles (user still must choose)
+                    corpTiles.forEach(tile => tile.style.display = 'none');
+                    corpTiles.forEach(t => t.classList.remove('wc-active-corp'));
+                    return;
+                }
+
+                corpTiles.forEach(tile => {
+                    if (tile.dataset.corp === selectedCorp) {
+                        tile.style.display = '';
+                        tile.classList.add('wc-active-corp');
+                    } else {
+                        tile.style.display = 'none';
+                        tile.classList.remove('wc-active-corp');
+                    }
+                });
+
+                // reset calendar display (show all months/cards)
+                const allWellCards = Array.from(document.querySelectorAll('.well-card'));
+                const allCards = Array.from(document.querySelectorAll('.calendar-card'));
+                allWellCards.forEach(wc => wc.style.display = '');
+                allCards.forEach(c => c.style.display = '');
+            }
+
+            if (brokerSelect) {
+                brokerSelect.addEventListener('change', onBrokerChange);
+                // init: hide corporate dropdown and hide tiles until broker->corporate selected
+                (function init() {
+                    if (corporateDropdownWrap) {
+                        corporateDropdownWrap.classList.add('hide');
+                        corporateDropdownWrap.setAttribute('aria-hidden', 'true');
+                    }
+                    corpTiles.forEach(tile => tile.style.display = 'none');
+                })();
+            }
+
+            if (corporateSelect) {
+                corporateSelect.addEventListener('change', onCorporateChange);
+            }
+
+            // Modal backdrop + buttons
+            if (backdrop) backdrop.addEventListener('click', (e) => { if (e.target === backdrop) closeModal(); });
+            [cancelTop, cancelBottom].forEach(b => { if (b) b.addEventListener('click', closeModal); });
+            [saveTop, saveBottom].forEach(b => { if (b) b.addEventListener('click', saveSelections); });
 
             window.wc_showSavedForCorp = showSavedForCorp;
         })();
