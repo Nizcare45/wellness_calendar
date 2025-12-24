@@ -52,6 +52,46 @@ body {
 .sidebar nav a:hover {
     background: rgba(255, 255, 255, 0.2);
 }
+/*  */
+
+.logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  width: 140px;
+  max-width: 40vw;
+  border-radius: 15px;
+  background-color: #fff;
+}
+
+.divider {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Mobile view */
+@media (max-width: 600px) {
+  .logo-wrapper {
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 15px;
+  }
+
+  .divider {
+    font-size: 1.5rem;
+  }
+
+  .logo {
+    width: 120px;
+  }
+}
 
 /* --- Main Content --- */
 .main-content {
