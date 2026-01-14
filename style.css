@@ -911,3 +911,125 @@ footer {
         margin-left: 0px;
     }
 }
+
+
+/* Health packages */
+.executive-card-wrapper {
+    padding: 40px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.executive-card {
+    background: linear-gradient(135deg, #ffffff, #f8fffd);
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+    max-width: 1100px;
+}
+
+.executive-header h1 {
+    font-size: 34px;
+    font-weight: 800;
+    color: #1da69a;
+}
+
+.executive-header p {
+    color: #555;
+    margin-top: 8px;
+    font-size: 16px;
+}
+
+.package-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* FORCE 5 cards in one row */
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.package-item {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.package-item:hover {
+    transform: translateY(-6px);
+}
+
+.package-item h3 {
+    font-size: 20px;
+    color: #1da69a;
+    margin-bottom: 8px;
+}
+
+.price span {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+    margin-left: 6px;
+}
+
+.price {
+    font-size: 22px;
+    font-weight: 700;
+    color: green;
+}
+
+.package-item p {
+    font-size: 14px;
+    /* color: #555; */
+    margin-top: 8px;
+}
+
+.included-tests {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px dashed #d9efe7;
+}
+
+.included-tests h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.included-tests ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    list-style: none;
+    padding: 0;
+}
+
+.included-tests li {
+    font-size: 15px;
+    margin-bottom: 12px;
+    color: #444;
+}
+
+.included-tests li i {
+    color: #0e9f6e;
+    margin-right: 8px;
+}
+
+.executive-footer {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.executive-footer button {
+    padding: 14px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #0e9f6e, #16bdca);
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(14,159,110,0.35);
+}
+
+.executive-footer button:hover {
+    opacity: 0.92;
+}
