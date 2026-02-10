@@ -356,8 +356,9 @@ body {
 }
 
 .calendar-date .year {
-    font-size: 0.75rem;
+    font-size: 1rem;
     opacity: 0.9;
+    margin-left: 5px;
 }
 
 .calendar-card img {
