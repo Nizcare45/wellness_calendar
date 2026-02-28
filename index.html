@@ -39,6 +39,16 @@
                 <p>Upcoming wellness events designed to boost your clients health, happiness, and productivity.</p>
             </div>
 
+            <!-- Dynamic Modal -->
+            <div id="dynamicModal" class="wellness-modal">
+                <div class="wellness-modal-content">
+                    <span class="wellness-close">&times;</span>
+                    <h2 id="modalTitle"></h2>
+                    <div id="modalTopics"></div>
+                    <button id="submitSelection">Submit</button>
+                </div>
+            </div>
+
             <!-- Broker selector + note -->
             <!-- <div class="broker-select-wrap">
                 <label for="brokerSelect">Select Broker:</label>
@@ -84,12 +94,6 @@
             </div> -->
 
 
-            <!-- <div class="logo-wrapper">
-                <img src="./assets/Logo/apex_logo.jpg" alt="Apex Logo" class="logo">
-                <span class="divider">×</span>
-                <img src="./assets/Logo/panent.jpeg" alt="AIFA Logo" class="logo">
-            </div> -->
-
             <div class="all-btn" style="margin-top:14px">
                 <button class="main-btn" id="btn-all">All</button>
                 <button class="main-btn" id="btn-paid">Paid</button>
@@ -104,7 +108,8 @@
                     </p> -->
                 </div>
                 <div class="calendar-grid">
-                    <div class="calendar-card" data-type="complementary">
+                    <div class="calendar-card" data-type="complementary" data-title="Webinar on Mental Wellness"
+                        data-topics="Understanding Mental Health|Stress Management|Work-Life Balance|Overcoming Anxiety|Emotional Resilience|Mindfulness Meditation">
                         <div class="calendar-date">
                             <span class="day">02</span><span class="month">Jan</span><span class="year">2026</span>
                         </div>
@@ -115,15 +120,30 @@
                         </div>
                     </div>
 
-                     <div class="calendar-card" data-type="paid">
+                    <div class="calendar-card" data-type="paid" data-title="Nutrition & Healthy Living"
+                        data-topics="Balanced Diet|Weight Management|Superfoods|Hydration Tips|Meal Planning|Healthy Habits">
                         <div class="calendar-date">
                             <span class="day">04</span><span class="month">Jan</span><span class="year">2026</span>
                         </div>
                         <div class="tag-paid"><span>Paid</span></div>
+                        <img src="./assets/wellness-calendar/4/Camp _ Eye.png"
+                            alt="">
+                        <div class="calendar-content">
+                            <h2> Eye Camp</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="paid" data-title="Nutrition & Healthy Living"
+                        data-topics="Balanced Diet|Weight Management|Superfoods|Hydration Tips|Meal Planning|Healthy Habits">
+                        <div class="calendar-date">
+                            <span class="day">04</span><span class="month">Jan</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <div class="tag-special">Special Days</div>
                         <img src="./assets/wellness-calendar/1/Activity_ Paid Mindfulness & Meditation Sessions.png"
                             alt="">
                         <div class="calendar-content">
-                            <h2> Activity: Paid Mindfulness & Meditation Sessions</h2>
+                            <h2> Mindfulness & Meditation Sessions (World Braille Day)</h2>
                         </div>
                     </div>
 
@@ -208,6 +228,18 @@
                     </p> -->
                 </div>
                 <div class="calendar-grid">
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">04</span><span class="month">Feb</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-complementary"><span>Free</span></div>
+                        <div class="tag-special">Special Days</div>
+                        <img src="./assets/wellness-calendar/2/Cancer awarness.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Comprehensive Cancer Screening Packages</h2>
+                        </div>
+                    </div>
+
                     <div class="calendar-card" data-type="complementary">
                         <div class="calendar-date">
                             <span class="day">04</span><span class="month">Feb</span><span class="year">2026</span>
@@ -308,25 +340,26 @@
                         </div>
                     </div>
 
-                    <div class="calendar-card" data-type="complementary">
+                    <div class="calendar-card" data-type="paid">
                         <div class="calendar-date">
                             <span class="day">08</span><span class="month">Mar</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <div class="tag-special" style="bottom: 80px;">Special Days</div>
+                        <img src="./assets/wellness-calendar/paid/Women's Wellness_ Gynecological Checkups.png" alt="">
+                        <div class="calendar-content">
+                            <h2>International Women’s Day</h2>
+                        </div>
+                    </div>
+
+                     <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">15</span><span class="month">Mar</span><span class="year">2026</span>
                         </div>
                         <div class="tag-complementary"><span>Free</span></div>
                         <img src="./assets/wellness-calendar/3/Stress Management.png" alt="">
                         <div class="calendar-content">
                             <h2>Online talk Stress Management</h2>
-                        </div>
-                    </div>
-
-                    <div class="calendar-card" data-type="paid">
-                        <div class="calendar-date">
-                            <span class="day">15</span><span class="month">Mar</span><span class="year">2026</span>
-                        </div>
-                        <div class="tag-paid"><span>Paid</span></div>
-                        <img src="./assets/wellness-calendar/paid/Women's Wellness_ Gynecological Checkups.png" alt="">
-                        <div class="calendar-content">
-                            <h2>International Women’s Day</h2>
                         </div>
                     </div>
 
@@ -423,20 +456,32 @@
                             <span class="day">07</span><span class="month">Apr</span><span class="year">2026</span>
                         </div>
                         <div class="tag-complementary"><span>Free</span></div>
+                        <div class="tag-special" style="bottom: 80px;">Special Days</div>
                         <img src="./assets/wellness-calendar/4/Webinar on Joint and Knee Pain.png" alt="">
                         <div class="calendar-content">
-                            <h2>Webinar on Joint and Knee Pain</h2>
+                            <h2>World Health Day</h2>
                         </div>
                     </div>
 
                     <div class="calendar-card" data-type="paid">
                         <div class="calendar-date">
-                            <span class="day">09</span><span class="month">Apr</span><span class="year">2026</span>
+                            <span class="day">07</span><span class="month">Apr</span><span class="year">2026</span>
                         </div>
                         <div class="tag-paid"><span>Paid</span></div>
                         <img src="./assets/wellness-calendar/4/Health Camp_ Early Detection & Prevention.png" alt="">
                         <div class="calendar-content">
                             <h2>Paid Health Camp: Preventive Care & Early Detection</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">09</span><span class="month">Apr</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-complementary"><span>Free</span></div>
+                        <img src="./assets/wellness-calendar/4/Webinar on Joint and Knee Pain.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Webinar on Joint and Knee Pain</h2>
                         </div>
                     </div>
 
@@ -485,16 +530,18 @@
                         </div>
                     </div>
 
-                    <!-- <div class="calendar-card" data-type="paid">
+                    <div class="calendar-card" data-type="paid">
                         <div class="calendar-date">
-                            <span class="day">24</span><span class="month">Apr</span><span class="year">2026</span>
+                            <span class="day">28</span><span class="month">Apr</span><span class="year">2026</span>
                         </div>
                         <div class="tag-paid"><span>Paid</span></div>
-                        <img src="./assets/wellness-calendar/apr-2025/apr-Mental Health Counseling.png" alt="">
+                        <div class="tag-special" style="bottom: 120px;">Special Days</div>
+                        <img src="./assets/wellness-calendar/4/Paid Activities_ Workplace Safety, Ergonomics & Occupational Health Programs.png"
+                            alt="">
                         <div class="calendar-content">
-                            <h2>Mental Health Counseling</h2>
+                            <h2>World Day for Safety and Health at Work</h2>
                         </div>
-                    </div> -->
+                    </div>
 
                 </div>
             </div>
@@ -543,16 +590,17 @@
                         </div>
                     </div>
 
-                    <!-- <div class="calendar-card" data-type="complementary">
+                    <div class="calendar-card" data-type="complementary">
                         <div class="calendar-date">
-                            <span class="day">13</span><span class="month">May</span><span class="year">2026</span>
+                            <span class="day">17</span><span class="month">May</span><span class="year">2026</span>
                         </div>
                         <div class="tag-complementary"><span>Free</span></div>
-                        <img src="./assets/wellness-calendar/5/Summer skin care.png" alt="">
+                        <div class="tag-special">Special Days</div>
+                        <img src="./assets/wellness-calendar/5/Camp _ dental.png" alt="">
                         <div class="calendar-content">
-                            <h2>Summer skin care</h2>
+                            <h2>World Hypertension Day</h2>
                         </div>
-                    </div> -->
+                    </div>
 
                     <div class="calendar-card" data-type="complementary">
                         <div class="calendar-date">
@@ -576,17 +624,6 @@
                             <h2>Seminar: "Silent Killer: Preventing High Blood Pressure"</h2>
                         </div>
                     </div>
-
-                    <!-- <div class="calendar-card" data-type="paid">
-                        <div class="calendar-date">
-                            <span class="day">22</span><span class="month">May</span><span class="year">2026</span>
-                        </div>
-                        <div class="tag-paid"><span>Paid</span></div>
-                        <img src="./assets/wellness-calendar/may-2025/may-Vaccination Drive.png" alt="">
-                        <div class="calendar-content">
-                            <h2>Vaccination Drive</h2>
-                        </div>
-                    </div> -->
 
                     <div class="calendar-card" data-type="paid">
                         <div class="calendar-date">
@@ -613,12 +650,37 @@
 
                     <div class="calendar-card" data-type="paid">
                         <div class="calendar-date">
+                            <span class="day">28</span><span class="month">May</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <div class="tag-special">Special Days</div>
+                        <img src="./assets/wellness-calendar/5/Seminar_ _Nutrition for Women’s Long-Term Health_.png"
+                            alt="">
+                        <div class="calendar-content">
+                            <h2>International Women’s Health Day</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
                             <span class="day">30</span><span class="month">May</span><span class="year">2026</span>
                         </div>
                         <div class="tag-paid"><span>Paid</span></div>
                         <img src="./assets/wellness-calendar/5/Health Camp_ Early Screening & Prevention.png" alt="">
                         <div class="calendar-content">
                             <h2>Health Camp: Early Screening & Prevention</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">30</span><span class="month">May</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <div class="tag-special">Special Days</div>
+                        <img src="./assets/wellness-calendar/5/Health Camp_ Early Screening & Prevention.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Protect Your Liver</h2>
                         </div>
                     </div>
 
@@ -631,6 +693,19 @@
                             alt="">
                         <div class="calendar-content">
                             <h2>Seminar: "Tobacco & Its Impact on Heart, Lungs and Liver"</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">31</span><span class="month">May</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <div class="tag-special" style="bottom: 80px;">Special Days</div>
+                        <img src="./assets/wellness-calendar/5/Seminar_ _Tobacco & Its Impact on Heart, Lungs and Liver_.png"
+                            alt="">
+                        <div class="calendar-content">
+                            <h2> World No Tobacco Day</h2>
                         </div>
                     </div>
 
@@ -656,17 +731,6 @@
                         </div>
                     </div>
 
-                    <!-- <div class="calendar-card" data-type="complementary">
-                        <div class="calendar-date">
-                            <span class="day">06</span><span class="month">Jun</span><span class="year">2026</span>
-                        </div>
-                        <div class="tag-complementary"><span>Free</span></div>
-                        <img src="./assets/wellness-calendar/6/Preventive Healthcare for Women – Self-Care.png" alt="">
-                        <div class="calendar-content">
-                            <h2>Preventive Healthcare for Women – Self-Care</h2>
-                        </div>
-                    </div> -->
-
                     <div class="calendar-card" data-type="complementary">
                         <div class="calendar-date">
                             <span class="day">11</span><span class="month">Jun</span><span class="year">2026</span>
@@ -686,6 +750,18 @@
                         <img src="./assets/wellness-calendar/6/Camp _ Blood donation.png" alt="">
                         <div class="calendar-content">
                             <h2>Blood donation</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">14</span><span class="month">Jun</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-complementary"><span>Free</span></div>
+                        <div class="tag-special">Special Days</div>
+                        <img src="./assets/wellness-calendar/6/Camp _ Blood donation.png" alt="">
+                        <div class="calendar-content">
+                            <h2>World Blood Donor Day</h2>
                         </div>
                     </div>
 
@@ -709,6 +785,17 @@
                         <img src="./assets/wellness-calendar/jun-2025/Stress Relief.png" alt="">
                         <div class="calendar-content">
                             <h2>Activity: "Balance Within: Yoga for Mind & Body Wellness"</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">21</span><span class="month">Jun</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <img src="./assets/wellness-calendar/jun-2025/Stress Relief.png" alt="">
+                        <div class="calendar-content">
+                            <h2>International Yoga Day</h2>
                         </div>
                     </div>
 
@@ -767,17 +854,6 @@
                         </div>
                     </div>
 
-                    <!-- <div class="calendar-card" data-type="complementary">
-                        <div class="calendar-date">
-                            <span class="day">18</span><span class="month">Jul</span><span class="year">2026</span>
-                        </div>
-                        <div class="tag-complementary"><span>Free</span></div>
-                        <img src="./assets/wellness-calendar/7/Health & Lifestyle Education.png" alt="">
-                        <div class="calendar-content">
-                            <h2>Health & Lifestyle Education</h2>
-                        </div>
-                    </div> -->
-
                     <div class="calendar-card" data-type="paid">
                         <div class="calendar-date">
                             <span class="day">22</span><span class="month">Jul</span><span class="year">2026</span>
@@ -802,7 +878,7 @@
 
                     <div class="calendar-card" data-type="paid">
                         <div class="calendar-date">
-                            <span class="day">22</span><span class="month">Jul</span><span class="year">2026</span>
+                            <span class="day">27</span><span class="month">Jul</span><span class="year">2026</span>
                         </div>
                         <div class="tag-paid"><span>Paid</span></div>
                         <img src="./assets/wellness-calendar/7/Health Camp_ Early Detection & Prevention.png" alt="">
@@ -813,13 +889,37 @@
 
                     <div class="calendar-card" data-type="paid">
                         <div class="calendar-date">
-                            <span class="day">22</span><span class="month">Jul</span><span class="year">2026</span>
+                            <span class="day">27</span><span class="month">Jul</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <div class="tag-special">Special Days</div>
+                        <img src="./assets/wellness-calendar/7/Health Camp_ Early Detection & Prevention.png" alt="">
+                        <div class="calendar-content">
+                            <h2>Liver Wellness Camp</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">28</span><span class="month">Jul</span><span class="year">2026</span>
                         </div>
                         <div class="tag-paid"><span>Paid</span></div>
                         <img src="./assets/wellness-calendar/7/Seminar_ _Liver Health Matters_ Awareness & Prevention_.png"
                             alt="">
                         <div class="calendar-content">
                             <h2>Seminar: "Liver Health Matters: Awareness & Prevention"</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">27</span><span class="month">Jul</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <div class="tag-special">Special Days</div>
+                        <img src="./assets/wellness-calendar/7/Health Camp_ Early Detection & Prevention.png" alt="">
+                        <div class="calendar-content">
+                            <h2>World Hepatitis Day</h2>
                         </div>
                     </div>
 
@@ -847,6 +947,18 @@
                 <div class="calendar-grid">
                     <div class="calendar-card" data-type="complementary">
                         <div class="calendar-date">
+                            <span class="day">1-7</span><span class="month">Aug</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-complementary"><span>Free</span></div>
+                        <div class="tag-special">Special Days</div>
+                        <img src="./assets/wellness-calendar/special-days/World Breastfeeding Week.png" alt="">
+                        <div class="calendar-content">
+                            <h2>World Breastfeeding Week</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
                             <span class="day">01</span><span class="month">Aug</span><span class="year">2026</span>
                         </div>
                         <div class="tag-complementary"><span>Free</span></div>
@@ -864,6 +976,19 @@
                         <img src="./assets/wellness-calendar/8/Smart Straegies for everday control.png" alt="">
                         <div class="calendar-content">
                             <h2>Seminar: "Supporting Working Moms: Breastfeeding & Self-Care"</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">13</span><span class="month">Oct</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <div class="tag-special">Special Days</div>
+                        <img src="./assets/wellness-calendar/8/Seminar_ _Donate Life_ Awareness, Myths & Facts About Organ Donation_.png"
+                            alt="">
+                        <div class="calendar-content">
+                            <h2>World Organ Donation Day</h2>
                         </div>
                     </div>
 
@@ -975,6 +1100,19 @@
                             <span class="day">10</span><span class="month">Sep</span><span class="year">2026</span>
                         </div>
                         <div class="tag-complementary"><span>Free</span></div>
+                        <div class="tag-special">Special Days</div>
+                        <img src="./assets/wellness-calendar/9/Online talk on _Overcoming Anxiety and stress.png"
+                            alt="">
+                        <div class="calendar-content">
+                            <h2>World Suicide Prevention Day</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">10</span><span class="month">Sep</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-complementary"><span>Free</span></div>
                         <img src="./assets/wellness-calendar/9/Online talk on _Overcoming Anxiety and stress_.png"
                             alt="">
                         <div class="calendar-content">
@@ -1013,6 +1151,19 @@
                             alt="">
                         <div class="calendar-content">
                             <h2>Seminar: "Healthy Heart, Happy Life: Heart Health Awareness"</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">29</span><span class="month">Sep</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <div class="tag-special">Special Days</div>
+                        <img src="./assets/wellness-calendar/8/Seminar_ _Donate Life_ Awareness, Myths & Facts About Organ Donation_.png"
+                            alt="">
+                        <div class="calendar-content">
+                            <h2>World Heart Day</h2>
                         </div>
                     </div>
                 </div>
@@ -1059,6 +1210,18 @@
                         </div>
                     </div>
 
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">10</span><span class="month">Oct</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-complementary"><span>Free</span></div>
+                        <div class="tag-special" style="bottom: 120px;">Special Days</div>
+                        <img src="./assets/wellness-calendar/10/Quality Life with pain free joints.png" alt="">
+                        <div class="calendar-content">
+                            <h2>World/National Mental Health Day</h2>
+                        </div>
+                    </div>
+
                     <div class="calendar-card" data-type="paid">
                         <div class="calendar-date">
                             <span class="day">14</span><span class="month">Oct</span><span class="year">2026</span>
@@ -1079,6 +1242,19 @@
                             alt="">
                         <div class="calendar-content">
                             <h2>Seminar: "Obesity Awareness & Lifestyle Workshop: Eat Smart, Move More"</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="paid">
+                        <div class="calendar-date">
+                            <span class="day">15-20</span><span class="month">Oct</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-paid"><span>Paid</span></div>
+                        <div class="tag-special">Special Days</div>
+                        <img src="./assets/wellness-calendar/10/Seminar_ _Obesity Awareness & Lifestyle Workshop_ Eat Smart, Move More_.png"
+                            alt="">
+                        <div class="calendar-content">
+                            <h2>World Obesity Awareness Week</h2>
                         </div>
                     </div>
 
@@ -1131,6 +1307,18 @@
                             <span class="day">07</span><span class="month">Nov</span><span class="year">2026</span>
                         </div>
                         <div class="tag-complementary"><span>Free</span></div>
+                        <div class="tag-special" style="bottom: 120px;">Special Days</div>
+                        <img src="./assets/wellness-calendar/11/Webinar on oral care.png" alt="">
+                        <div class="calendar-content">
+                            <h2>National Cancer Awareness Day</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">07</span><span class="month">Nov</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-complementary"><span>Free</span></div>
                         <img src="./assets/wellness-calendar/11/Seminar_ _Cancer Awareness & Prevention_ Know the Signs, Take Action_.png"
                             alt="">
                         <div class="calendar-content">
@@ -1157,6 +1345,18 @@
                         <img src="./assets/wellness-calendar/11/Online Non Communicable Disease 1.png" alt="">
                         <div class="calendar-content">
                             <h2>Online Non Communicable Disease</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">14</span><span class="month">Nov</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-complementary"><span>Free</span></div>
+                        <div class="tag-special" style="bottom: 80px;">Special Days</div>
+                        <img src="./assets/wellness-calendar/11/Online Non Communicable Disease 1.png" alt="">
+                        <div class="calendar-content">
+                            <h2>World Diabetes Day</h2>
                         </div>
                     </div>
 
@@ -1239,6 +1439,32 @@
 
                     <div class="calendar-card" data-type="complementary">
                         <div class="calendar-date">
+                            <span class="day">03</span><span class="month">Dec</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-complementary"><span>Free</span></div>
+                        <div class="tag-special">Special Days</div>
+                        <img src="./assets/wellness-calendar/12/Seminar_ _Inclusivity & Accessibility_ Supporting Persons with Disabilities.png"
+                            alt="">
+                        <div class="calendar-content">
+                            <h2>International Day of Persons with Disabilities</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
+                            <span class="day">6-12</span><span class="month">Dec</span><span class="year">2026</span>
+                        </div>
+                        <div class="tag-complementary"><span>Free</span></div>
+                        <div class="tag-special" style="bottom: 120px;">Special Days</div>
+                        <img src="./assets/wellness-calendar/12/Seminar_ _Inclusivity & Accessibility_ Supporting Persons with Disabilities.png"
+                            alt="">
+                        <div class="calendar-content">
+                            <h2> National Handwashing Awareness Week</h2>
+                        </div>
+                    </div>
+
+                    <div class="calendar-card" data-type="complementary">
+                        <div class="calendar-date">
                             <span class="day">07</span><span class="month">Dec</span><span class="year">2026</span>
                         </div>
                         <div class="tag-complementary"><span>Free</span></div>
@@ -1275,8 +1501,7 @@
                             <span class="day">20</span><span class="month">Dec</span><span class="year">2026</span>
                         </div>
                         <div class="tag-paid"><span>Paid</span></div>
-                        <img src="./assets/wellness-calendar/12/Zumba.png"
-                            alt="">
+                        <img src="./assets/wellness-calendar/12/Zumba.png" alt="">
                         <div class="calendar-content">
                             <h2>Zumba</h2>
                         </div>
@@ -1669,6 +1894,57 @@
 
             window.wc_showSavedForCorp = showSavedForCorp;
         })();
+
+
+        // =========================
+        const modal = document.getElementById("dynamicModal");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalTopics = document.getElementById("modalTopics");
+        const closeBtn = document.querySelector(".wellness-close");
+        const submitBtn = document.getElementById("submitSelection");
+
+        document.querySelectorAll(".calendar-card").forEach(card => {
+
+            card.addEventListener("click", function () {
+
+                const title = this.getAttribute("data-title");
+                const topics = this.getAttribute("data-topics").split("|");
+
+                modalTitle.textContent = title;
+                modalTopics.innerHTML = "";
+
+                topics.forEach((topic, index) => {
+                    const topicHTML = `
+                <label>
+                    <input type="checkbox" value="${topic}">
+                    ${topic}
+                </label>
+            `;
+                    modalTopics.innerHTML += topicHTML;
+                });
+
+                modal.style.display = "block";
+            });
+
+        });
+
+        closeBtn.addEventListener("click", function () {
+            modal.style.display = "none";
+        });
+
+        window.addEventListener("click", function (e) {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+
+        submitBtn.addEventListener("click", function () {
+            const selected = [];
+            document.querySelectorAll("#modalTopics input:checked")
+                .forEach(checkbox => selected.push(checkbox.value));
+
+            alert("Selected Topics:\n" + selected.join("\n"));
+        });
     </script>
 
 </body>
