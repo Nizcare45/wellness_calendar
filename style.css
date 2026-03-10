@@ -1008,6 +1008,95 @@ footer {
     background: #f4f6f8;
 }
 
+/* ===========cement============= */
+.cement-wrapper {
+    margin-top: 20px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #ffffff, #f7fafc);
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.cement-wrapper h1 {
+    font-size: 28px;
+    color: #1e293b;
+    margin-bottom: 35px;
+    font-weight: 600;
+}
+
+/* Layout */
+.cement-packages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Card */
+.cement-card {
+    width: 300px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 22px;
+    border: 1px solid #e5e7eb;
+    transition: all 0.25s ease;
+    text-align: left;
+}
+
+.cement-card:hover {
+    border-color: #cbd5f5;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+/* Heading */
+.cement-card h2 {
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    color: #0f172a;
+}
+
+/* Icon */
+.icon {
+    background: #eef2ff;
+    color: #1da69a;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* List */
+.test-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.test-list li {
+    padding: 7px 0;
+    font-size: 14px;
+    color: #475569;
+    display: flex;
+    align-items: center;
+}
+
+/* Soft separators */
+.test-list li:not(:last-child) {
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* Highlight tiers */
+.highlight {
+    color: #0284c7;
+    font-weight: 500;
+}
+
+.premium {
+    color: #16a34a;
+    font-weight: 500;
+}
 /* Header */
 
 .section-header {
